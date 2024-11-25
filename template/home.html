@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title%}
+tweet pages
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4">HOME</h1>
+<form action="{% url 'home' %}" method="POST">
+    {% csrf_token %}
+    <h4 class="text-center mt-4">
+        <a class="btn btn-outline-success mb-2" href="{% url 'tweet_create' %}" role="button">Create a Tweet-A</a>
+        <!-- <button class="btn btn-outline-success" type="submit" style="margin: 7px 4px;"><a
+                href="{% url 'tweet_create' %}">Create a Tweet-A
+            </a></button> -->
+        </h4>
+</form>
+<div class="container row gap-3 ">
+    
+    <!-- <div class="card" style="width: 18rem;">
+        <img src="/media/{{tweets.0.photo}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{tweets.0.name}}</h5>
+            <p class="card-text">{{tweets.0.text}}</p>
+            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+        </div>
+    </div> -->
+
+    {% for i in tweets %}
+    <div class="card pt-3" style="width: 18rem;">
+        <img src="/media/{{i.photo}}" height="200px" width="200px" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{i.name}}</h5>
+            <p class="card-text">{{i.text}}</p>
+            {% if i.user == user %}
+            <a href="{% url 'tweet_edit' i.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'tweet_delete' i.id %}" class="btn btn-danger">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<!-- footer section -->
+<footer class="footer mt-4">
+    <div class="card text-center">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">About us</h5>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 p-2">
+                        <h2><br>Tweet-A</h2>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <h4>Contact us</h4>
+                        <p><i class="fas-fa-phone mr-3"></i>7030487372/9021085470
+                            <hr>Email : kolheamit23@gmail.com
+                        </p>
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <h4>Follow us </h4>
+                        <ul class="list-inline footer-link">
+                            <li class="list-inline-item">
+                                <a href="">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <li class="list-inline-item">
+                            <a href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li> amitkolhe_23
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <h4>Support</h4>
+                    </div>
+                </div>
+            </div>
+            <u><b> Thank you</b></u>
+        </div>
+    </div>
+</footer>
+
+{% endblock content %}

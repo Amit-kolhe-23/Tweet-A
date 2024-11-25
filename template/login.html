@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+login
+{% endblock %}
+
+
+{% block content %}
+<h1 class="text-center mt-4">Tweet-A <br>Login form </h1>
+
+<!-- login page -->
+<form action="{% url 'login' %}" id="loginbody" method="POST">
+    {% csrf_token %}
+    <div class="containers">
+        <div class="form-box login">
+            <h2>LOGIN</h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" id="username" name="username" required>
+                    <label for="username">Username</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="password" name="password" required>
+                    <label for="password">Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box">
+                    <button class="btns" type="submit">Login</button>
+                </div>
+                <div class="regi-link">
+                    <p>Don't have a account ? <a href="{% url 'register' %}" class="signuplink">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="infotweet login">
+            <h2>Welcome <br> back</h2>
+            <p>It's nice to see you again! <br>Log in to continue to your account.</p>
+        </div>
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+tweet
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4">Tweet-A <br>
+    {% if form.instance.id %}
+    Twedit (Tweet + edit)
+    {% else %}
+    Create a tweet
+    {% endif %}
+</h1>
+<br>
+<br>
+<form action="" method="POST" enctype="multipart/form-data" class="text-center mt-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-success mt-4 mx-2" type="submit" role="button">Submit</button>
+    <p>go to <a class="signuplink" href="{% url 'home' %}"> home</a></p>
+</form>
+
+
+{% endblock content %}
