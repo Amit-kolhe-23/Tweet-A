@@ -1,2 +1,2 @@
-Tweet-A — Social Media Web Application
+Tweet-A — Social Media Web Application   
 A dynamic, full-featured social media platform built with HTML5, CSS, Bootstrap, SQLite, Django, and Python. "Tweet-A" allows users to create, edit, and delete tweets, upload images, and engage in an interactive user experience. Authentication is enforced so that only logged-in users can manage their own content, ensuring user privacy and security. Designed with responsive UI and intuitive features for a seamless tweeting experience.
